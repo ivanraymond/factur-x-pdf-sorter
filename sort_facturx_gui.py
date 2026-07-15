@@ -128,7 +128,7 @@ class App:
         facturx_dir.mkdir(exist_ok=True)
         regular_dir.mkdir(exist_ok=True)
 
-        pdf_files = sorted(input_dir.glob("*.pdf")) + sorted(input_dir.glob("*.PDF"))
+        pdf_files = sorted(set(input_dir.glob("*.pdf")) | set(input_dir.glob("*.PDF")))
 
         if not pdf_files:
             self.log_line("No PDF files found directly in this folder.")
